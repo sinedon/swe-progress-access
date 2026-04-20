@@ -1,0 +1,14 @@
+package com.swe.project.progressaccess.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ClickRequest {
+    private String learnerId;
+    private String topicId;
+    private String label;
+}
