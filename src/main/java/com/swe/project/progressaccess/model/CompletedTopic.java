@@ -9,28 +9,28 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "progress")
-public class Progress {
+@Table(
+        name = "completed_topics",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"learner_id", "topic_id"})
+)
+public class CompletedTopic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "learner_id", nullable = false)
     private String learnerId;
 
-    @Column(nullable = false)
+    @Column(name = "topic_id", nullable = false)
     private String topicId;
 
-    @Column(nullable = false)
-    private String label;
-
-    private LocalDateTime createdAt;
+    private LocalDateTime completedAt;
 
     @PrePersist
     public void prePersist() {
-        if (createdAt == null) {
-            createdAt = LocalDateTime.now();
+        if (completedAt == null) {
+            completedAt = LocalDateTime.now();
         }
     }
 }

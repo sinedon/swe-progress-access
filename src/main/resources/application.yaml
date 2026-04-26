@@ -1,5 +1,5 @@
 spring:
   application:
-    name: process-access
+    name: progress-access
   config:
     import: optional:configserver:http://config-service:8888
